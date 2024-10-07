@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dota 2 Bingo Card Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Gabe Hamontree">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="https://www.gabehamontree.com/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="https://www.gabehamontree.com/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="https://www.gabehamontree.com/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="https://www.gabehamontree.com/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="https://www.gabehamontree.com/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.gabehamontree.com/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.gabehamontree.com/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.gabehamontree.com/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="https://www.gabehamontree.com/" type="application/atom+xml" rel="alternate" title="Gabe's IT Blogspot ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="https://www.gabehamontree.com/index.html">Gabe's IT Blogspot </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href="https://www.gabehamontree.com/pages/about.html">About Me</a></li>
+                <li><a href="https://www.gabehamontree.com/pages/resume.html">Resume</a></li>
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="https://www.gabehamontree.com/category/ansible.html">
+						<i class="icon-folder-open icon-large"></i>Ansible
+					</a>
+                  </li>
+                  <li class="active">
+                    <a href="https://www.gabehamontree.com/category/python.html">
+						<i class="icon-folder-open icon-large"></i>Python
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.gabehamontree.com/category/ruby.html">
+						<i class="icon-folder-open icon-large"></i>Ruby
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="https://www.gabehamontree.com/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Dota 2 Bingo Card Generator">
+                                        Dota 2 Bingo Card Generator
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2024-10-06T07:20:00-06:00">
+        <i class="icon-calendar"></i>Sun 06 October 2024
+</abbr>
+<span class="label">By</span>
+<a href="https://www.gabehamontree.com/author/gabe-hamontree.html"><i class="icon-user"></i>Gabe Hamontree</a>
+<span class="label">Category</span>
+<a href="https://www.gabehamontree.com/category/python.html"><i class="icon-folder-open"></i>Python</a>.
+
+
+<span class="label">Tags</span>
+	<a href="https://www.gabehamontree.com/tag/blog.html"><i class="icon-tag"></i>blog</a>
+	<a href="https://www.gabehamontree.com/tag/example.html"><i class="icon-tag"></i>example</a>
+	<a href="https://www.gabehamontree.com/tag/discord.html"><i class="icon-tag"></i>discord</a>
+	<a href="https://www.gabehamontree.com/tag/bot.html"><i class="icon-tag"></i>bot</a>
+</footer><!-- /.post-info -->                </div>
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">discord</span>
+<span class="kn">from</span> <span class="nn">discord.ext</span> <span class="kn">import</span> <span class="n">commands</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">prettytable</span> <span class="kn">import</span> <span class="n">PrettyTable</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">discord.errors</span> <span class="kn">import</span> <span class="n">NotFound</span>
+
+<span class="k">class</span> <span class="nc">BingoBot</span><span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">Bot</span><span class="p">):</span>
+    <span class="n">card_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Wick AFK first minute&#39;</span><span class="p">,</span> <span class="s1">&#39;Metta goes mute&#39;</span><span class="p">,</span> <span class="s1">&#39;Harri clicks E randomly&#39;</span><span class="p">,</span> <span class="s1">&#39;Longo says he is bored&#39;</span><span class="p">,</span> <span class="s1">&#39;Edgar is farming not fighting&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Chris falls asleep&#39;</span><span class="p">,</span> <span class="s1">&#39;Nick 15 deaths&#39;</span><span class="p">,</span> <span class="s1">&#39;Alec jungling pre 5min&#39;</span><span class="p">,</span> <span class="s1">&#39;Harder games with worse heros&#39;</span><span class="p">,</span> <span class="s1">&#39;Metta MageSlayer or Linkin&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Longo spergs out&#39;</span><span class="p">,</span> <span class="s1">&#39;Harri Pango or similar&#39;</span><span class="p">,</span> <span class="s1">&#39;GAMER WORDS USED&#39;</span><span class="p">,</span> <span class="s1">&#39;Smurf stack gets paused on&#39;</span><span class="p">,</span> <span class="s1">&#39;Colton sighs sadly&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Chin Abyssal on Ogre&#39;</span><span class="p">,</span> <span class="s1">&#39;We pause, then lose&#39;</span><span class="p">,</span> <span class="s1">&#39;Anyone muted for rest of match&#39;</span><span class="p">,</span> <span class="s1">&#39;Netta lane&#39;</span><span class="p">,</span> <span class="s1">&#39;Enemy Sniper or Viper mid&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;Complaints about supports&#39;</span><span class="p">,</span> <span class="s1">&#39;Kener safelane&#39;</span><span class="p">,</span> <span class="s1">&#39;Wick</span><span class="se">\&#39;</span><span class="s1">s mom yelling&#39;</span><span class="p">,</span> <span class="s1">&#39;Complaining about detection&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;They have sentries everywhere&#39;</span><span class="p">,</span> <span class="s1">&#39;60 minute L&#39;</span><span class="p">,</span> <span class="s1">&#39;The rando goes core and feeds&#39;</span><span class="p">]</span>
+    <span class="c1"># the bingo cards of the players, {player id (str) : bingo card (2D list)}</span>
+    <span class="n">bingo_cards</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">bingo_card_message_ids</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">create_card</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player_id</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">player_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bingo_cards</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># Already have a card</span>
+        <span class="n">random</span><span class="o">.</span><span class="kp">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">card_list</span><span class="p">)</span>
+        <span class="n">card</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>  <span class="c1"># Change made here</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+                <span class="n">card</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">card_list</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span>  <span class="c1"># Change made here</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bingo_cards</span><span class="p">[</span><span class="n">player_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">card</span>  <span class="c1"># store it as 2D list directly</span>
+
+    <span class="k">def</span> <span class="nf">cross_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player_id</span><span class="p">,</span> <span class="kp">item</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">player_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bingo_cards</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">card</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bingo_cards</span><span class="p">[</span><span class="n">player_id</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>  <span class="c1"># Changed here</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>  <span class="c1"># Changed here</span>
+                <span class="k">if</span> <span class="n">card</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="kp">item</span><span class="p">:</span>
+                    <span class="n">card</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">bingo_cards</span><span class="p">[</span><span class="n">player_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">card</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">check_bingo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player_id</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">player_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bingo_cards</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">card</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bingo_cards</span><span class="p">[</span><span class="n">player_id</span><span class="p">]</span>
+        <span class="c1"># check rows and columns</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>  <span class="c1"># Change made here</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">card</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;X&#39;</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)):</span>  <span class="c1"># Change made here</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">card</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;X&#39;</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)):</span>  <span class="c1"># Change made here</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="c1"># check diagonals</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">card</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;X&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)):</span>  <span class="c1"># Change made here</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">card</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">4</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;X&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)):</span>  <span class="c1"># Change made here</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">intents</span> <span class="o">=</span> <span class="n">discord</span><span class="o">.</span><span class="n">Intents</span><span class="o">.</span><span class="kp">all</span><span class="p">()</span>
+
+<span class="n">bot</span> <span class="o">=</span> <span class="n">BingoBot</span><span class="p">(</span><span class="n">command_prefix</span><span class="o">=</span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="n">intents</span><span class="o">=</span><span class="n">intents</span><span class="p">)</span>
+
+<span class="nd">@bot</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;newcard&#39;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">new_card</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">create_card</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+    <span class="n">card_table</span> <span class="o">=</span> <span class="n">PrettyTable</span><span class="p">()</span>
+    <span class="n">card</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">bingo_cards</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">id</span><span class="p">)]</span>
+    <span class="c1"># Set field names before adding rows</span>
+    <span class="n">card_table</span><span class="o">.</span><span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">card</span><span class="p">:</span>
+        <span class="n">card_table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New bingo card created for </span><span class="si">{</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">mention</span><span class="si">}</span><span class="s2">. Here it is:</span><span class="se">\n</span><span class="s2">```</span><span class="se">\n</span><span class="si">{</span><span class="n">card_table</span><span class="si">}</span><span class="se">\n</span><span class="s2">```&quot;</span><span class="p">)</span>
+    <span class="c1"># save the message id</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">bingo_card_message_ids</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">id</span><span class="p">)]</span> <span class="o">=</span> <span class="n">sent_message</span><span class="o">.</span><span class="n">id</span>
+
+<span class="c1"># in cross_item command</span>
+<span class="nd">@bot</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cross&#39;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">cross_item</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="kp">item</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">bot</span><span class="o">.</span><span class="n">cross_off</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">id</span><span class="p">),</span> <span class="kp">item</span><span class="p">):</span>
+        <span class="n">message_id</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">bingo_card_message_ids</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">id</span><span class="p">)]</span>
+        <span class="c1"># delete the original message</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">message_to_delete</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">fetch_message</span><span class="p">(</span><span class="n">message_id</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">message_to_delete</span><span class="o">.</span><span class="kp">delete</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">NotFound</span><span class="p">:</span>  <span class="c1"># if the message has already been deleted</span>
+            <span class="k">pass</span>
+        <span class="c1"># print the updated bingo card</span>
+        <span class="n">card_table</span> <span class="o">=</span> <span class="n">PrettyTable</span><span class="p">()</span>
+        <span class="n">card_table</span><span class="o">.</span><span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">bot</span><span class="o">.</span><span class="n">bingo_cards</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">id</span><span class="p">)]:</span>
+            <span class="n">card_table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="n">sent_message</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bingo card of </span><span class="si">{</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">mention</span><span class="si">}</span><span class="s2"> after an item has been crossed off:</span><span class="se">\n</span><span class="s2">```</span><span class="se">\n</span><span class="si">{</span><span class="n">card_table</span><span class="si">}</span><span class="se">\n</span><span class="s2">```&quot;</span><span class="p">)</span>
+        <span class="c1"># update the message id</span>
+        <span class="n">bot</span><span class="o">.</span><span class="n">bingo_card_message_ids</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">id</span><span class="p">)]</span> <span class="o">=</span> <span class="n">sent_message</span><span class="o">.</span><span class="n">id</span>
+        <span class="k">if</span> <span class="n">bot</span><span class="o">.</span><span class="n">check_bingo</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">id</span><span class="p">)):</span>
+            <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">mention</span><span class="si">}</span><span class="s2"> got a bingo!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Item not found in the bingo card of </span><span class="si">{</span><span class="n">ctx</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">mention</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+<span class="nd">@bot</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;reset_harri&#39;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">reset_bot</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">bingo_cards</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">bingo_card_message_ids</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All variables in the bot have been reset.&quot;</span><span class="p">)</span>
+
+<span class="c1"># set bot token and ensure it&#39;s not None</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+<span class="n">TOKEN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;TOKEN&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">TOKEN</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;TOKEN is not set in the environment&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">TOKEN</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="https://github.com/The-Nebertcher"><i class="icon-external-link"></i>Github</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+<li><a href="https://www.gabehamontree.com/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+    <li><a href="https://linkedin.com/in/gabe-hamontree/"><i class="icon-LinkedIn-sign icon-large"></i>LinkedIn</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="https://www.gabehamontree.com/category/ansible.html">
+    <i class="icon-folder-open icon-large"></i>Ansible
+</a>
+</li>
+<li>
+<a href="https://www.gabehamontree.com/category/python.html">
+    <i class="icon-folder-open icon-large"></i>Python
+</a>
+</li>
+<li>
+<a href="https://www.gabehamontree.com/category/ruby.html">
+    <i class="icon-folder-open icon-large"></i>Ruby
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://www.gabehamontree.com/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="https://www.gabehamontree.com/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

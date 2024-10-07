@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Python, Legacy -> cPanel Migrations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Gabe Hamontree">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="https://www.gabehamontree.com/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="https://www.gabehamontree.com/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="https://www.gabehamontree.com/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="https://www.gabehamontree.com/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="https://www.gabehamontree.com/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.gabehamontree.com/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.gabehamontree.com/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.gabehamontree.com/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="https://www.gabehamontree.com/" type="application/atom+xml" rel="alternate" title="Gabe's IT Blogspot ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="https://www.gabehamontree.com/index.html">Gabe's IT Blogspot </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href="https://www.gabehamontree.com/pages/about.html">About Me</a></li>
+                <li><a href="https://www.gabehamontree.com/pages/resume.html">Resume</a></li>
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="https://www.gabehamontree.com/category/ansible.html">
+						<i class="icon-folder-open icon-large"></i>Ansible
+					</a>
+                  </li>
+                  <li class="active">
+                    <a href="https://www.gabehamontree.com/category/python.html">
+						<i class="icon-folder-open icon-large"></i>Python
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.gabehamontree.com/category/ruby.html">
+						<i class="icon-folder-open icon-large"></i>Ruby
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="https://www.gabehamontree.com/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Python, Legacy -> cPanel Migrations">
+                                        Python, Legacy -> cPanel Migrations
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2023-12-17T10:20:00-07:00">
+        <i class="icon-calendar"></i>Sun 17 December 2023
+</abbr>
+<span class="label">By</span>
+<a href="https://www.gabehamontree.com/author/gabe-hamontree.html"><i class="icon-user"></i>Gabe Hamontree</a>
+<span class="label">Category</span>
+<a href="https://www.gabehamontree.com/category/python.html"><i class="icon-folder-open"></i>Python</a>.
+
+
+<span class="label">Tags</span>
+	<a href="https://www.gabehamontree.com/tag/blog.html"><i class="icon-tag"></i>blog</a>
+	<a href="https://www.gabehamontree.com/tag/tutorial.html"><i class="icon-tag"></i>tutorial</a>
+</footer><!-- /.post-info -->                </div>
+                <p>Years ago I was tasked with setting up a less manual way of migrating clients from a legacy in house site control to cPanel.  The migrations would have taken years to do manually, but with a bit of elbow greae I was able to help get things done much more quickly with Python.  Below is the example code from that project when I worked at 100TB. </p>
+<div class="highlight"><pre><span></span><code>    <span class="c1">#!/usr/bin/python</span>
+    <span class="c1"># --------------------------------------------------------------------</span>
+    <span class="c1"># Import Libraries</span>
+    <span class="c1"># --------------------------------------------------------------------</span>
+
+    <span class="c1">#Need to enable actual logging for the notes file.</span>
+
+    <span class="kn">import</span> <span class="nn">os</span>
+
+    <span class="c1"># Making the notes file</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;touch /notes.txt&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;chmod 755 /notes.txt&#39;</span><span class="p">)</span>
+
+    <span class="c1"># --------------------------------------------------------------------</span>
+    <span class="c1"># Performing the Account Review</span>
+    <span class="c1"># --------------------------------------------------------------------</span>
+    <span class="c1"># Directory Sizes</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;directory_size&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Domains/Subdomains</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;domains&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Email Users</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;email_users&#39;</span><span class="p">)</span>
+
+    <span class="c1"># FTP Users</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;ftp_users&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Aliases</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;aliases&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Databases</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;databases&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Commands</span>
+    <span class="n">directory_size</span> <span class="o">=</span> <span class="s1">&#39;echo -e &quot;</span><span class="se">\n</span><span class="s1">+++Directory sizes+++&quot;;echo -e &quot;Size of /home: $(du -h ~ --max-depth=0 2&gt;/dev/null| awk </span><span class="se">\&#39;</span><span class="s1">{print $1}</span><span class="se">\&#39;</span><span class="s1">)</span><span class="se">\n</span><span class="s1">&quot;; echo -e </span><span class="se">\&quot;</span><span class="s1">Size of /: $(du -h / --max-depth=0 2&gt;/dev/null| awk </span><span class="se">\&#39;</span><span class="s1">{print $1}</span><span class="se">\&#39;</span><span class="s1">)</span><span class="se">\n\&quot;</span><span class="s1">; echo -e </span><span class="se">\&quot;</span><span class="s1">Size of /ftp/pub: $(du -h /ftp/pub --max-depth=0 | awk </span><span class="se">\&#39;</span><span class="s1">{print $1}</span><span class="se">\&#39;</span><span class="s1">)</span><span class="se">\n</span><span class="s1">&quot;; echo -e &quot;+++SSL+++&quot;; openssl s_client -connect localhost:443 -ssl2 1&gt;/dev/null 2&gt;/dev/null &amp;&amp; echo </span><span class="se">\&quot;</span><span class="s1">Client may have an SSL. Check https://www.sslshopper.com/ssl-checker.html&quot; || echo </span><span class="se">\&quot;</span><span class="s1">No SSL.&quot; &gt;&gt; /notes.txt&#39;</span>
+    <span class="n">domains</span> <span class="o">=</span> <span class="s1">&#39;echo -e </span><span class="se">\&quot;\n</span><span class="s1">+++Domains/Web Root+++</span><span class="se">\n\n</span><span class="s1">Number of Domains: $(grep ServerName /etc/httpd/conf/httpd.conf| sed -n -e </span><span class="se">\&#39;</span><span class="s1"> /^\s*#.*$/! p</span><span class="se">\&#39;</span><span class="s1"> | grep -c ServerName)</span><span class="se">\n\&quot;</span><span class="s1"> &amp;&amp;(counter=0) | for x in $(grep -E </span><span class="se">\&#39;</span><span class="s1">(ServerName|DocumentRoot)</span><span class="se">\&#39;</span><span class="s1"> /etc/httpd/conf/httpd.conf | sed -n -e </span><span class="se">\&#39;</span><span class="s1"> /^\s*#.*$/!p</span><span class="se">\&#39;</span><span class="s1"> | tr -d </span><span class="se">\&#39;\011\&#39;</span><span class="s1"> | sed </span><span class="se">\&#39;</span><span class="s1">s/^ *//</span><span class="se">\&#39;</span><span class="s1"> | awk </span><span class="se">\&#39;</span><span class="s1">{print $2}</span><span class="se">\&#39;</span><span class="s1"> | sed -e </span><span class="se">\&#39;</span><span class="s1">s/^&quot;//</span><span class="se">\&#39;</span><span class="s1">  -e </span><span class="se">\&#39;</span><span class="s1">s/&quot;$//</span><span class="se">\&#39;</span><span class="s1">); do while [[ $counter -lt 2 ]]; do  if [[ $counter -eq 0 ]]; then echo </span><span class="se">\&quot;</span><span class="s1">Domain: $x</span><span class="se">\&quot;</span><span class="s1">; let counter=$counter+1; break; elif [[ $counter -eq 1 ]]; then echo -e </span><span class="se">\&quot;</span><span class="s1">Document Root: $x</span><span class="se">\&quot;</span><span class="s1">; ls $x &gt;&amp;/dev/null &amp;&amp; echo -e </span><span class="se">\&quot;</span><span class="s1">Size of $x: $(du -h --max-depth=0 $x | awk </span><span class="se">\&#39;</span><span class="s1">{print $1}</span><span class="se">\&#39;</span><span class="s1">)</span><span class="se">\n</span><span class="s1">&quot; || echo -e </span><span class="se">\&quot;</span><span class="s1"> </span><span class="se">\&quot;</span><span class="s1">; let counter=0; break; else counter=0; fi; done; done; &gt;&gt; /notes.txt&#39;</span>
+    <span class="n">email_users</span> <span class="o">=</span> <span class="s1">&#39;echo -e </span><span class="se">\&quot;\n</span><span class="s1">+++Email Users+++&quot; &amp;&amp; (dir=mail; for x in $(ls /usr/local); do if [ $x = imap-server-1.0 ]; then dir=imap; elif [ $x = dovecot ]; then dir=maildirs; else :; fi; done; if [[ $dir = </span><span class="se">\&quot;</span><span class="s1">mail</span><span class="se">\&quot;</span><span class="s1"> ]]; then echo -e </span><span class="se">\&quot;\n</span><span class="s1">Client is using POP</span><span class="se">\&quot;</span><span class="s1">; elif [[ $dir = </span><span class="se">\&quot;</span><span class="s1">imap</span><span class="se">\&quot;</span><span class="s1"> ]]; then echo -e &quot;</span><span class="se">\n</span><span class="s1">Client is using IMAP 1.0 (Not Dovecot)</span><span class="se">\&quot;</span><span class="s1">; elif [[ $dir = </span><span class="se">\&quot;</span><span class="s1">maildirs</span><span class="se">\&quot;</span><span class="s1"> ]]; then echo -e </span><span class="se">\&quot;\n</span><span class="s1">Client is using IMAP (Dovecot)</span><span class="se">\&quot;</span><span class="s1">; else echo -e </span><span class="se">\&quot;\n</span><span class="s1">Script failed to get email program.</span><span class="se">\n\&quot;</span><span class="s1">; fi; echo -e </span><span class="se">\&quot;</span><span class="s1">Size of /var/spool/$dir: $(du -h /var/spool/$dir --max-depth=0 | awk </span><span class="se">\&#39;</span><span class="s1">{print $1}</span><span class="se">\&#39;</span><span class="s1">)</span><span class="se">\n\&quot;</span><span class="s1">;)&amp;&amp; cat /etc/features | tail -n+4 | grep -v mail=-1 | cut -d</span><span class="se">\&#39;</span><span class="s1">:</span><span class="se">\&#39;</span><span class="s1"> -f1 &gt;&gt; /notes.txt&#39;</span>
+    <span class="n">ftp_users</span> <span class="o">=</span> <span class="s1">&#39;echo -e &quot;</span><span class="se">\n</span><span class="s1">+++FTP Users+++</span><span class="se">\n</span><span class="s1">&quot;; cat /etc/features | grep -v ftp=-1 | tail -n+4 | cut -d</span><span class="se">\&#39;</span><span class="s1">:</span><span class="se">\&#39;</span><span class="s1"> -f1 &gt;&gt; /notes.txt&#39;</span>
+    <span class="n">aliases</span> <span class="o">=</span> <span class="s1">&#39;echo -e &quot;</span><span class="se">\n</span><span class="s1">+++Email Forwarders+++</span><span class="se">\n</span><span class="s1">&quot;&amp;&amp;(host=&quot;$(hostname)&quot;)| sed -n -e </span><span class="se">\&#39;</span><span class="s1">/root:postmaster/,$p</span><span class="se">\&#39;</span><span class="s1"> /etc/aliases | tail -n+4 | sed -e </span><span class="se">\&quot;</span><span class="s1">s/:/@$(hostname) forwards to /g</span><span class="se">\&quot;</span><span class="s1"> &gt;&gt; /notes.txt&#39;</span>
+    <span class="n">databases</span> <span class="o">=</span> <span class="s1">&#39;echo -e &quot;</span><span class="se">\n</span><span class="s1">+++Databases+++</span><span class="se">\n</span><span class="s1">&quot; &amp;&amp; ls -alh /var/lib/mysql &gt; /dev/null &amp;&amp; echo -e </span><span class="se">\&quot;</span><span class="s1">Size of /var/lib/mysql: $(du -h /var/lib/mysql | sed -n -e </span><span class="se">\&#39;</span><span class="s1">/^.*\s\/.*lib\/mysql$/p</span><span class="se">\&#39;</span><span class="s1"> | awk </span><span class="se">\&#39;</span><span class="s1">{print $1}</span><span class="se">\&#39;</span><span class="s1">)</span><span class="se">\n\&quot;</span><span class="s1"> &amp;&amp; mysql -e </span><span class="se">\&quot;</span><span class="s1">show databases;</span><span class="se">\&quot;</span><span class="s1"> &gt;&gt; /notes.txt&#39;</span>
+
+    <span class="c1"># --------------------------------------------------------------------</span>
+    <span class="c1"># Making the Tarball</span>
+    <span class="c1"># --------------------------------------------------------------------</span>
+    <span class="c1"># Make Folders</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;cd / &amp;&amp; mkdir /migration &amp;&amp; mkdir /migration/websites &amp;&amp; mkdir /migration/databases &amp;&amp; mkdir /migration/ftp&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Move Site Content</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;cp -rv /var/www/html /migration/websites&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Move Databases</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;for x in $(mysql -BNe </span><span class="se">\&#39;</span><span class="s1">show databases</span><span class="se">\&#39;</span><span class="s1"> | grep -v </span><span class="se">\&quot;</span><span class="s1">^mysql$\|information_schema\|^test$</span><span class="se">\&quot;</span><span class="s1">);do mysqldump $x &gt; /migration/databases/$x.sql;done&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Move FTP users</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;cp -r /ftp/pub /migration/ftp&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Checking Size</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;du -h --max-depth=0 /migration&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Time to tar</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;tar cvzf /migration.tar.gz /migration&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Remove Extra Folder</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;rm -rf /migration&quot;</span><span class="p">)</span>
+
+
+
+    <span class="c1"># debug</span>
+    <span class="c1"># print repr(directory_size)</span>
+    <span class="c1"># print</span>
+    <span class="c1"># print repr(aliases)</span>
+    <span class="c1"># os.exit()</span>
+
+    <span class="c1"># path_out os.system(path)</span>
+    <span class="c1"># print path_out</span>
+    <span class="c1"># os.exit() #Debug</span>
+</code></pre></div>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="https://github.com/The-Nebertcher"><i class="icon-external-link"></i>Github</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+<li><a href="https://www.gabehamontree.com/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+    <li><a href="https://linkedin.com/in/gabe-hamontree/"><i class="icon-LinkedIn-sign icon-large"></i>LinkedIn</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="https://www.gabehamontree.com/category/ansible.html">
+    <i class="icon-folder-open icon-large"></i>Ansible
+</a>
+</li>
+<li>
+<a href="https://www.gabehamontree.com/category/python.html">
+    <i class="icon-folder-open icon-large"></i>Python
+</a>
+</li>
+<li>
+<a href="https://www.gabehamontree.com/category/ruby.html">
+    <i class="icon-folder-open icon-large"></i>Ruby
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://www.gabehamontree.com/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="https://www.gabehamontree.com/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
